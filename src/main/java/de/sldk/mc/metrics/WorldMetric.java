@@ -21,14 +21,11 @@ public abstract class WorldMetric extends Metric {
     }
 
     protected abstract void clear();
+
     protected abstract void collect(World world);
 
     protected String getEntityName(EntityType type) {
-        try {
-            return type.getKey().getKey();
-        } catch (Throwable t) {
-            // Note: The entity type key above was introduced in 1.14. Older implementations should fallback here.
-            return type.name();
-        }
+        // Note: The entity type key above was introduced in 1.14. Older implementations should fallback here.
+        return type.name();
     }
 }

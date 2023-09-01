@@ -9,6 +9,7 @@ import org.bukkit.plugin.Plugin;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import static java.util.Collections.emptyMap;
 import static java.util.Collections.singletonMap;
 
 /**
@@ -33,7 +34,7 @@ public class Entities extends WorldMetric {
     /**
      * Override the value returned by {@link EntityType#isAlive()}.
      */
-    private static final Map<EntityType, Boolean> ALIVE_OVERRIDE = singletonMap(EntityType.ARMOR_STAND, false);
+    private static final Map<EntityType, Boolean> ALIVE_OVERRIDE = emptyMap();
 
     public Entities(Plugin plugin) {
         super(plugin, ENTITIES);

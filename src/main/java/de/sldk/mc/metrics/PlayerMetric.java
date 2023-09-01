@@ -25,11 +25,11 @@ public abstract class PlayerMetric extends Metric {
     protected abstract void collect(OfflinePlayer player);
 
     protected String getUid(OfflinePlayer player) {
-        return player.getUniqueId().toString();
+        return player.getName().toString();
     }
 
     protected String getNameOrUid(OfflinePlayer player) {
-        return player.getName() != null ? player.getName() : player.getUniqueId().toString();
+        return player.getName() != null ? player.getName() : player.getName().toString();
     }
 
 }
