@@ -23,7 +23,7 @@ public class Villagers extends WorldMetric {
     private static final Gauge VILLAGERS = Gauge.build()
             .name(prefix("villagers_total"))
             .help("Villagers total count, labelled by world, type, profession, and level")
-            .labelNames("world", "type", "profession", "level")
+            .labelNames("world", "profession")
             .create();
 
     public Villagers(Plugin plugin) {
@@ -43,7 +43,7 @@ public class Villagers extends WorldMetric {
 
         mapVillagerGroupingToCount.forEach((grouping, count) ->
                 VILLAGERS
-                        .labels(world.getName())
+                        .labels(world.getName(), grouping.profession.name())
                         .set(count)
         );
     }
