@@ -16,7 +16,7 @@ public class PrometheusExporterConfig {
     public static final PluginConfig<Integer> PORT = new PluginConfig<>("port", 9940);
     public static final List<MetricConfig> METRICS = Arrays.asList(
             metricConfig("entities_total", true, Entities::new),
-            metricConfig("villagers_total", true, Villagers::new),
+            metricConfig("villagers_total", false, Villagers::new),
             metricConfig("loaded_chunks_total", true, LoadedChunks::new),
             metricConfig("jvm_memory", true, Memory::new),
             metricConfig("players_online_total", true, PlayersOnlineTotal::new),
@@ -33,7 +33,8 @@ public class PrometheusExporterConfig {
             metricConfig("tick_duration_min", false, TickDurationMinCollector::new),
             metricConfig("tick_duration_max", true, TickDurationMaxCollector::new),
 
-            metricConfig("player_online", false, PlayerOnline::new));
+            metricConfig("player_online", false, PlayerOnline::new),
+            metricConfig("events_total", false, EventsTotal::new));
 
     private final PrometheusExporter prometheusExporter;
 
