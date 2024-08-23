@@ -25,7 +25,8 @@ public class EventsTotal extends Metric {
 
     public EventsTotal(Plugin plugin) {
         super(plugin, EVENTS);
-        this.injectListener();
+        // Defer this until server fully starts up
+        plugin.getServer().getScheduler().runTaskLater(plugin, this::injectListener, 1);
     }
 
     private void injectListener() {
